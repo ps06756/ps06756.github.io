@@ -711,12 +711,35 @@ body {
 /* GitHub Chart */
 .github-chart {
     width: 100%;
-    min-width: 650px;
+    max-width: 100%;
+    height: auto;
 }
 
 @media (prefers-color-scheme: dark) {
     .github-chart {
         filter: invert(1) hue-rotate(180deg);
+    }
+}
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+    .github-chart {
+        min-width: unset;
+        max-width: 100%;
+    }
+    
+    .note-paper::before {
+        display: none;
+    }
+    
+    .max-w-2xl {
+        max-width: 100%;
     }
 }
 
